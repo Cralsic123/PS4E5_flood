@@ -1,3 +1,10 @@
+import express from "express";
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import { config as configDotenv } from "dotenv"; // Use config method from dotenv
 
 
 
@@ -409,27 +416,7 @@ app.get("/note/search", isAuthenticated, (req, res) => {
   const userId = req.userID;
   const { tag } = req.query;
 
-  // Find notes with the specified tag and user ID
-  Notebook.find({ tag, user: userId })
-    .then((notes) => {
-      // res.status(200).json(notes);
-      res.render("search", { tag, notes });
-    })
-    .catch((error) => {
-      console.error("Error searching notes:", error);
-      // res.status(500).json({ message: 'An error occurred while searching notes' });
-      const errorMessage = "An error occurred while searching notes";
-      res.render("error_template", { errorMessage });
-    });
-});
 
-// ----------------------------------Notebook APIS -----------------------------------------
-
-// GET - ROOT API
-app.get("/", isAuthenticatedlogin, (req, res) => {
-  // res.send('Welcome to the NoteVault');
-  res.render("home");
-});
 
 // Start the server
 app.listen(port, () => {
