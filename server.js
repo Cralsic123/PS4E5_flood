@@ -1,10 +1,4 @@
-import express from "express";
-import mongoose from "mongoose";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
-import { config as configDotenv } from "dotenv"; // Use config method from dotenv
+
 
 
 configDotenv();
